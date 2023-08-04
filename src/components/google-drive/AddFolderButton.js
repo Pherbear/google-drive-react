@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFolderPlus } from '@fortawesome/free-solid-svg-icons'
 import { database } from '../../firebase'
 import { useAuth } from '../../contexts/AuthContext'
+import Folder from './Folder'
 
 export default function AddFolderButton({ currentFolder }) {
    const [open, setOpen] = useState(false)

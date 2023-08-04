@@ -22,6 +22,12 @@ function App() {
                       <Dashboard />
                     </PrivateRoute> 
                   } />
+                <Route exact path="/folder/:folderId" element={
+                    <PrivateRoute>
+                      <Dashboard />
+                    </PrivateRoute> 
+                  } />
+                
 
                 {/* Profile Routes */}
                 <Route path="/user" 
