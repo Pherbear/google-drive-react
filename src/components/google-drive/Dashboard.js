@@ -10,7 +10,7 @@ import FolderBreadcrumbs from './FolderBreadcrumbs'
 export default function Dashboard() {
 
   const { folderId } = useParams()
-  const state = {} = useLocation()
+  const { state = {} } = useLocation()
   const { folder, childFolders } = useFolder(folderId, state.folder)
 
   return (
