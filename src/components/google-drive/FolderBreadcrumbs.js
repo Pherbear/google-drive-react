@@ -4,9 +4,10 @@ import { ROOT_FOLDER } from '../../hooks/useFolder'
 import { Link } from 'react-router-dom'
 
 export default function FolderBreadcrumbs({ currentFolder }) {
-   let path = currentFolder == ROOT_FOLDER? [] : [ROOT_FOLDER]
 
+   let path = currentFolder === ROOT_FOLDER ? [] : [ROOT_FOLDER]
    if (currentFolder) path = [...path, ...currentFolder.path]
+
 
    return (
       <Breadcrumb

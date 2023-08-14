@@ -9,14 +9,16 @@ export default function Folder({ folder }) {
       <Button
          to= {{
             pathname: `/folder/${folder.id}`,
-            state: { folder: folder},
+            state: { folder: folder }
          }}
          variant= "outline-dark" 
          className="text-truncate w-100" 
          as={ Link }
       >
          <FontAwesomeIcon icon={faFolder} className='mr-2' />
+
          {folder.name}
+
       </Button>
    )
 }

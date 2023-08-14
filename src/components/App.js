@@ -3,12 +3,15 @@ import Signup from './authentication/Signup';
 import { Container } from 'react-bootstrap'
 import { AuthProvider } from '../contexts/AuthContext';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { RouteComponentProps, useLocation } from 'react-router-dom'; 
 import Profile from "./authentication/Profile"
 import Login from "./authentication/Login"
 import PrivateRoute from './authentication/PrivateRoute'
 import ForgotPassword from './authentication/ForgotPassword'
 import UpdateProfile from './authentication/UpdateProfile'
 import Dashboard from './google-drive/Dashboard';
+
+
 
 function App() {
   return (
