@@ -7,12 +7,14 @@ import AddFileButton from './AddFileButton'
 import Folder from './Folder'
 import { useParams, useLocation } from 'react-router-dom'
 import FolderBreadcrumbs from './FolderBreadcrumbs'
+import File from './File'
 
 export default function Dashboard() {
 
+  
   const { folderId } = useParams()
   const { state = {} } = useLocation()
-  const { folder, childFolders } = useFolder(folderId)
+  const { folder, childFolders, childFiles } = useFolder(folderId, state? state.folder : null)
 
   return (
     <>
@@ -36,6 +38,22 @@ export default function Dashboard() {
               ))}
             </div>
           )}
+
+        {childFolders.length > 0 && childFiles.length > 0 && <hr /> }
+        {childFiles.length > 0 && (
+          <div className="d-flex flex-wrap">
+            {childFiles.map(childFile => (
+              <div
+                key={childFile.id}
+                style={{ maxWidth: '250px' }}
+                className='p-2'
+              >
+                <File file={childFile} />
+              </div>
+            ))}
+          </div>
+        )}   
+
         </Container>
     </>
   )

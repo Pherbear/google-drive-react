@@ -1,13 +1,12 @@
 import React from 'react'
 import { Breadcrumb } from 'react-bootstrap'
 import { ROOT_FOLDER } from '../../hooks/useFolder'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function FolderBreadcrumbs({ currentFolder }) {
 
    let path = currentFolder === ROOT_FOLDER ? [] : [ROOT_FOLDER]
    if (currentFolder) path = [...path, ...currentFolder.path]
-
 
    return (
       <Breadcrumb
@@ -21,10 +20,8 @@ export default function FolderBreadcrumbs({ currentFolder }) {
                key = {folder.id}
                linkAs={Link} 
                linkProps={{
-                  to: {
-                     pathname: folder.id? `/folder/${folder.id}` : "/",
-                     state: {folder: {...folder, path: path.slice(1, index)}}
-                  }
+                  to: { pathname: folder.id? `/folder/${folder.id}` : "/" },
+                  state: {folder: {...folder, path: path.slice(1, index)}}
                }}
                className='text-truncate d-inline-block' 
                style={{ 
